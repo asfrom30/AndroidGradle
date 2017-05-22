@@ -7,7 +7,7 @@
 
 1. Declare Variable in the build.gradle file which is in the app folder
 cf) below code block means 'public static final String MYURL = test.seoul.go.kr' or seoul.go.kr in the BuildConfig.java class
-'''
+'''java
 debug{
 	buildConfigField("String", "MYURL", "\"test.seoul.go.kr\"")
 } release {
@@ -19,3 +19,6 @@ debug{
 
 3. If you want to access Variable Value, Use BuildConfig Class
 cf) BuildConfig.MYURL
+
+
+[lecture pdf file](https://github.com/asfrom30/GradleSetting/blob/master/002_Builder_Gradle.pdf)
