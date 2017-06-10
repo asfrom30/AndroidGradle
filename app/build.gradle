@@ -11,34 +11,38 @@ android {
         versionName "1.0"   // Beta는 0.9
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
     signingConfigs {
         release{
-            // 이렇게 사용하면 보안에 노출되므로
-//            storeFile file("../../keystore/keystore.jks")   // KeyStore의 경로를 알려줌
-//            storePassword "alfo0505??"
-//            keyAlias "testKey"
-//            keyPassword "123456"
-            // gradle.properties는 배포 파일에 같이 포함되지 않으므로
-            storeFile   file("../../keystore/keystore.jks")   // KeyStore의 경로를 알려줌
+            /* Declare Directly */
+            // storeFile file("../../keystore/keystore.jks")   // Keystore Path
+            // storePassword "***************"
+            // keyAlias "testKey"
+            // keyPassword "123456"
+
+            /* Refer to gradle.properties */
+            storeFile   file("../../keystore/keystore.jks")   // Keystore Path
             storePassword storePw
             keyAlias keyId
             keyPassword keyPw
 
+            // gradle.properties는 배포 파일에 같이 포함되지 않으므로
+            // 이렇게 사용하면 보안에 노출되므로
         }
     }
 
     buildTypes {
-        debug{        // 개발자용, 배포용 실행을 하면 두개를 설치한다.
-                            // 값의타입 이름  실제값
-            buildConfigField("String", "MYURL", "\"test.seoul.go.kr\"")
+        debug{    // Build Variante Type
+            buildConfigField("String" /* Variable Type */, "MYURL" /* Variable Name */, "\"test.seoul.go.kr\"" /* Variable Value */ )
         }
         release {
-            signingConfig signingConfigs.release
-                            // 값의타입 이름  실제값
             buildConfigField("String", "MYURL", "\"seoul.go.kr\"")
+            /* Delcare for Release */
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug2{
+
         }
     }
 
