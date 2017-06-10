@@ -1,9 +1,8 @@
 # Build using Gradle
 
-## Compile and Run
 There are two types of **Build.gradle** file. In this time we often use which is located in app folder.
 
-#### Build Variant Variables
+## Build Variant Variables
 
 If you want to change variables depend on build type. Declare **buildTypes**
 
