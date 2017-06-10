@@ -37,9 +37,9 @@ cf) BuildConfig.MYURL
 5. Register 'signingConfigs' in the 'build.gradle' file
     signingConfigs {
         release{
-            // 이렇게 사용하면 보안에 노출되므로
-            storeFile file("../../keystore/keystore.jks")   // KeyStore의 경로를 알려줌
-            storePassword "alfo0505??"
+            // It is insecure.
+            storeFile file("../../keystore/keystore.jks")   // notify keystore's path
+            storePassword "123456"
             keyAlias "testKey"
             keyPassword "123456"
         }
@@ -47,15 +47,22 @@ cf) BuildConfig.MYURL
 
 5.1 If you don't want to expose your keyAlias and key password
 5.2 Move storePassword, keyAlias, keyPassword to 'gradle.properties' in root directory
+```
 cf)
 	storePw ="123456"
 	keyId="testKey"
 	keyPw="123456"
+```
+
 5.3 Change siningConfigs File
+```
 cf)
 	storePassword storePw
 	keyAlias keyId
 	keyPassword keyPw
+```
 5.4 add 'gradle.properties' file to '.gitignore'
+```
 cf)
 	/gradle.properties
+```
